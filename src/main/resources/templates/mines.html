@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mines</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1><a href="/">Gamestudio</a></h1>
+<h2>Mines</h2>
+
+<a href="/mines">New game</a><br/>
+
+You are now 
+<span th:if="${@minesController.marking}">MARKING</span>
+<span th:if="${not @minesController.marking}">OPENING</span>
+
+<a href="/mines/change">click to here change</a><br/>
+
+<div th:utext="${@minesController.htmlField}"/>
+
+</body>
+</html>

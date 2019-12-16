@@ -1,0 +1,46 @@
+body {
+	background-image: url("images/carbot.png");
+	background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Righteous', cursive;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+}
+
+.nav {
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	text-decoration: hidden;
+}
+
+.login {
+    text-align: right;
+}
+
+.plog {
+	font-size: 30px;
+}
+
+input[type=text], input[type=password]{
+    background-color: rgb(240, 239, 188);
+    color: black;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+  background: none;
+  height: 20px;
+  border: 1px solid black;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
