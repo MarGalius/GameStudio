@@ -16,7 +16,7 @@ public class MainController {
 	public String index() {
 		return "index";
 	}
-
+// ovecka
 	@RequestMapping("/login")
 	public String login(Player player) {
 		if ("heslo".equals(player.getPasswd())) {
