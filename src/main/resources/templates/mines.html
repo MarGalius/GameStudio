@@ -1,22 +1,56 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Mines</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Mines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link
+	href="https://fonts.googleapis.com/css?family=Righteous&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="/mines.css">
 </head>
 <body>
-<h1><a href="/">Gamestudio</a></h1>
-<h2>Mines</h2>
 
-<a href="/mines">New game</a><br/>
+	<h1>
+		<a href="/"><b>GameStudio</b></a>
+	</h1>
+	<div class=nGame>
 
-You are now 
-<span th:if="${@minesController.marking}">MARKING</span>
-<span th:if="${not @minesController.marking}">OPENING</span>
 
-<a href="/mines/change">click to here change</a><br/>
+		<h2>Minesweeper</h2>
 
-<div th:utext="${@minesController.htmlField}"/>
+		<div th:if="${not @mainController.logged}">
+			You are not logged. Please <a href="/">log in</a>.
+		</div>
 
+		<div th:if="${@mainController.logged}">
+			You are logged as <span id=player
+				th:text="${@mainController.loggedPlayer.name}" /><br />
+		</div>
+
+		<a href="/mines">New game</a><br /> You are now <span id=mark
+			th:if="${@minesController.marking}">MARKING</span> <span id=open
+			th:if="${not @minesController.marking}">OPENING</span> <a
+			href="/mines/change"> - click to here change</a>
+	</div>
+
+	<br />
+	<div class=field>
+		<div th:utext="${@minesController.htmlField}" />
+	</div>
+
+	<h3>Scores</h3>
+	<div class=score>
+
+		<ol>
+			<li th:each="score : ${@puzzleController.scores}"><span
+				th:text="${score.ident}" /> <span th:text="${score.username}" /> <span
+				th:text="${score.game}" /> <span th:text="${score.value}" /></li>
+		</ol>
+	</div>
 </body>
 </html>

@@ -1,43 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Puzzle</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="puzzle.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Puzzle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="/reset.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" media="screen" href="/puzzle.css">
 </head>
 <body>
-<h1><a href="/">Gamestudio</a></h1>
-<h2>Puzzle</h2>
+	<h1>
+		<a href="/">Gamestudio</a>
+	</h1>
+	<h2>Puzzle</h2>
 
-<div th:if="${not @mainController.logged}">
-	You are not logged. Please <a href="/">log in</a>.
-</div>
+	<div th:if="${not @mainController.logged}">
+		You are not logged. Please <a href="/">log in</a>.
+	</div>
 
-<div th:if="${@mainController.logged}">
-	You are logged as <span th:text="${@mainController.loggedPlayer.name}"/><br/>
-</div>
+	<div th:if="${@mainController.logged}">
+		You are logged as <span th:text="${@mainController.loggedPlayer.name}" /><br />
+		<a href="/puzzle">New game</a><br />
+	</div>
+	<div th:if="${@puzzleController.solved}">
+		You've solved the puzzle!<br />
+	</div>
 
-<a href="/puzzle">New game</a><br/>
+	<div th:if="${not @puzzleController.solved}">
+		<div th:utext="${@puzzleController.htmlField}" />
+		<img src="/images/puzzle/puzzle.jpg" />
+	</div>
 
-<div th:if="${@puzzleController.solved}">
-	You've solved the puzzle!<br/>
-</div>
 
-<div th:if="${not @puzzleController.solved}">
-	<div th:utext="${@puzzleController.htmlField}"/>
-</div>
-
-<img src="/images/puzzle/puzzle.jpg"/>
-
-<h3>Scores</h3>
-<ol>
-<li th:each="score : ${@puzzleController.scores}">
-	<span th:text="${score.ident}"/>
-	<span th:text="${score.username}"/>
-	<span th:text="${score.game}"/>
-	<span th:text="${score.value}"/>
-</li>
-</ol>
-
+    <h3>Scores</h3>
+	<div >
+		
+		<ol>
+			<li th:each="score : ${@puzzleController.scores}"><span
+				th:text="${score.ident}" /> <span th:text="${score.username}" /> <span
+				th:text="${score.game}" /> <span th:text="${score.value}" /></li>
+		</ol>
+	</div>
 </body>
 </html>

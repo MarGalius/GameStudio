@@ -2,37 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" media="screen" href="index.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Righteous&display=swap"
+	rel="stylesheet">
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" media="screen" href="/index.css">
 <title>Gamestudio</title>
 </head>
 <body>
 	<h1>Welcome to Game studio!</h1>
-	<h2>Our favorite games:</h2>
-	<div class="nav">
-	<br />
-	<a href="/puzzle">Puzzle</a>
-	<br />
-	<a href="/mines">Mines</a>
-	<br />
-	</div>
-
-	
-	
-
 	<div class=login th:if="${not @mainController.logged}">
-		<span class=plog >Please login : &nbsp;&nbsp;&nbsp;&nbsp;      <br /></span>
+		<span class=plog>Please login : &nbsp;&nbsp;&nbsp;&nbsp; <br /></span>
 		<form action="/login">
-		 Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text" name="name" /><br />
-		 Password : <input
-				type="password" name="passwd" /><br /> <input type="submit"
-				value="Login" />
+			Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type="text"
+				name="name" /><br /> Password : <input type="password"
+				name="passwd" /><br /> <input type="submit" value="Login" />
 		</form>
 	</div>
-	<div th:if="${@mainController.logged}">
-		You are logged as <span th:text="${@mainController.loggedPlayer.name}" />
-		<a href="/logout">Logout</a><br />
+	<div class=login th:if="${@mainController.logged}">
+		You are logged as &nbsp;&nbsp; <span id=player
+			th:text="${@mainController.loggedPlayer.name}" /><a id=log href="/logout">Logout</a><br />
 	</div>
-
+	<h2>Choose your Game:</h2>
+	<div class="container">
+		<div class="row">
+			<br />
+			<div class="col-4">
+				<a href="/puzzle"> Puzzle<img src="images/puzzle/15puzzle.jpg" /></a><br />
+			</div>
+			<div class="col-4">
+				<a href="/mines"> Minesweeper<img src="images/mines/mines.jpg" /></a>
+				<br />
+			</div>
+			<div class="col-4">
+				<a href="/guessNumber"> GuessGame<img
+					src="images/guess/guess.jpg" /></a> <br />
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<span>
+			<h3>Testing site ! :-D</h3>
+		</span>
+	</div>
 </body>
 </html>

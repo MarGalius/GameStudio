@@ -22,7 +22,7 @@ public class MinesController {
 
 	@RequestMapping
 	public String index() {
-		field = new Field(9, 9, 10);
+		field = new Field(12, 12, 40);
 		return "mines";
 	}
 

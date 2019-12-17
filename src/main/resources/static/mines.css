@@ -1,0 +1,65 @@
+body {
+	background-image: url("images/minesweeper.jpg");
+	background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-family: 'Righteous', cursive;
+    color: black;
+}
+
+table {
+	border: 10px;
+}
+table, td { 
+	background-color: black;
+	border: Solid black;
+	line-height: 0;
+}
+
+img {
+	width: 1.5em;;
+	height: auto;
+}
+
+.nGame {
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+h1, h3 {
+	text-align: center;
+	text-decoration: none;
+}
+
+.field {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: auto;
+}
+
+.score {
+	display: flex;
+	justify-content: center;
+}
+
+a {
+	color: black;
+	padding: 0;
+	margin: 0;
+}
+
+#player {
+	color: blue;
+	font-weight: bold;
+}
+
+#mark {
+	color: red;
+}
+
+#open {
+	color: green;
+}
